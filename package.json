@@ -1,0 +1,13 @@
+{
+  "name": "jsdemo",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "yarn workspace css-is-my-passio build",
+    "start": "yarn workspace css-is-my-passio start",
+    "start-daw": "yarn workspace daw start"
+  }
+}

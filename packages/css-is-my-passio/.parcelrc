@@ -1,0 +1,7 @@
+{
+  "extends": "@parcel/config-default",
+  "optimizers": {
+    "*.js": ["...", "parcel-optimizer-roadroller"],
+    "*.html": ["@parcel/optimizer-htmlnano"]
+  }
+}

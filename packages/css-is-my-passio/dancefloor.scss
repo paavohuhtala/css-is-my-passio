@@ -1,0 +1,129 @@
+@property --y {
+  syntax: '<length>';
+  initial-value: 0vh;
+  inherits: false;
+}
+
+#dc {
+  --y: 0px;
+
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  &.active > * {
+    transform: perspective(500px) translateY(var(--y)) rotateX(70deg) scale(0.8);
+  }
+
+  & > * {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+  
+    padding: 32px;
+  
+    transform: perspective(500px) translateY(-2000px) rotateX(0deg) scale(0.8);
+    transition: transform $b2 cubic-bezier(0.175, 0.885, 0.32, 1.275), --y calc($b) ease-out;
+
+    &:nth-child(1) {
+      .kick & {
+        --y: 2vh;
+      }
+
+      & > *:nth-child(3n) {
+        visibility: hidden;
+      } 
+    }
+    &:nth-child(2) {
+      & > *:not(:nth-child(3n)) {
+        visibility: hidden;
+      }
+    }
+  }
+}
+
+.dancefloor-tile {
+  justify-self: center;
+  align-self: center;
+
+  width: 100%;
+  height: 100%;
+
+  transform-origin: left center;
+
+  background-color: white;
+  border: 4px solid black;
+  border-radius: 8px;
+
+  box-shadow: inset 0px 0px 32px 8px black;
+
+  .dancing & {
+    animation: dancing-floor infinite alternate $b2 ease-in-out both;
+  }
+
+  transition: background-color 0.1s ease-in-out;
+
+  .kick .dancing &.react-to-kick  {
+    background-color: rgb(38, 26, 204) !important;
+  }
+
+  .snare & {
+    background-color: rgb(255, 255, 255) !important;
+  }
+}
+
+@keyframes dancing-floor {
+  0% {
+    transform: rotateX(20deg);
+  }
+  50% {
+    transform: rotateX(30deg) translateX(5px);
+  }
+  100% {
+    transform: rotateX(50deg);
+  }
+}
+
+#dl {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  top: -30vh;
+  mix-blend-mode: lighten;
+  transform: perspective(500px) translateY(220px);
+
+  & > * {
+    min-width: 25vw;
+    height: 200vh;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0) 15%,
+      rgba(255, 193, 252, 0.66) 50%,
+      rgba(255, 255, 255, 0.0) 85%,
+      rgba(255, 255, 255, 0) 100%
+    );
+
+
+    border-top-left-radius: 25%;
+    border-top-right-radius: 25%;
+
+    transform-origin: center top;
+    animation: light-move $b8 ease-in-out infinite alternate;
+  }
+}
+
+@keyframes light-move {
+  0% {
+    transform: rotateZ(-45deg);
+  }
+  100% {
+    transform: rotateZ(45deg);
+  }
+}

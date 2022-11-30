@@ -1,0 +1,43 @@
+
+:where(#eb) {
+  background: var(--noise);
+  background-size: 400%;
+  background-repeat: repeat;
+  filter: blur(10px) brightness(0.08);
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--noise);
+    background-repeat: repeat;
+    background-size: 200%;
+    opacity: 0.95;
+    mix-blend-mode: exclusion;
+
+    animation: bg-move infinite calc($b * 128) linear alternate;
+  }
+
+  &.vertical {
+    background-size: 400% 1%;
+
+    &::after {
+      background-size: 200% 1%;
+      mix-blend-mode: difference;
+    }
+  }
+}
+
+.lighten {
+  transition: none !important;
+  filter: blur(10px) brightness(2.3) !important;
+}
+
+.faster {
+  transition: filter calc($b * 16);
+  animation: bg-move infinite calc($b * 64) linear alternate;
+  filter: blur(10px) brightness(0.9);
+}

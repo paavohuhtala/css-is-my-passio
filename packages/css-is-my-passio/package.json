@@ -1,0 +1,17 @@
+{
+  "name": "css-is-my-passio",
+  "version": "1.0.0",
+  "license": "MIT",
+  "browserslist": "chrome 106",
+  "devDependencies": {
+    "@parcel/transformer-inline-string": "2.7.0",
+    "@parcel/transformer-sass": "2.7.0",
+    "parcel": "2.8.0",
+    "parcel-optimizer-roadroller": "^1.0.0",
+    "typescript": "^4.8.4"
+  },
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  }
+}

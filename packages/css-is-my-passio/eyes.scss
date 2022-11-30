@@ -1,0 +1,152 @@
+
+.eye {
+  border-radius: 50%;
+  transition: filter 0.4s ease-out;
+  transform-origin: center;
+
+  &:not(.main-eye) {
+    position: absolute;
+    width: 10vh;
+    height: 10vh;
+
+    &:nth-child(odd) {
+      width: 15vh;
+      height: 15vh;
+
+      .kick & {
+        filter: invert(1);
+      }
+    }
+    &:nth-child(even) {
+      .snare & {
+        filter: drop-shadow(0 0 200px rgb(255, 255, 255));
+      }
+    }
+  }
+
+  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 45%, rgb(243, 111, 111) 61%, rgba(0,0,0,1) 71%);
+  animation: eye-enter $b8 ease-in both;
+
+  &.main-eye {
+    animation: eye-enter $b8 ease-in both, eye-move-up-down infinite $b4 ease-in-out;
+  }
+
+  .move-eye & {
+    animation: move-eye infinite calc($b * 16) ease-in-out both;
+  }
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.show-pupil .pupil {
+  position: relative;
+  width: 45%;
+  height: 45%;
+  border-radius: 50%;
+  background: linear-gradient(47deg, rgba(6,6,6,1) 0%, rgba(0,0,0,1) 45%, rgb(37, 37, 37) 66%, rgba(0,0,0,1) 84%); 
+}
+
+.animate-pupil .pupil {
+  animation: pupil-move infinite alternate $b8 ease both;
+}
+
+#e {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.eye-center {
+  position: relative;
+
+  height: 80vh;
+  aspect-ratio: 1/1;
+
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  body.rotate-eye & {
+    animation: eye-container-rotate infinite calc($b * 32) linear forwards;
+  }
+}
+
+.main-eye {
+  width: 25vh;
+  height: 25vh;
+}
+
+@keyframes move-eye {
+  0% {
+    transform: translateX(0%) translateY(-30%);
+  }
+  25% {
+    transform: translateX(-60%) translateY(-60%);
+  }
+  50% {
+    transform: translateX(0%) translateY(-30%);
+  }
+  75% {
+    transform: translateX(60%) translateY(-60%);
+  }
+  100% {
+    transform: translateX(0%) translateY(-30%);
+  }
+}
+
+@keyframes pupil-move {
+  0% {
+    transform: translateX(0%) translateY(0%) scale(0.8);
+  }
+  25% {
+    transform: translateX(-50%) translateY(-40%) scale(1.0);
+  }
+  75% {
+    transform: translateX(50%) translateY(-40%) scale(1.0);
+  }
+  100% {
+    transform: translateX(0%) translateY(0%) scale(0.8);
+  }
+}
+
+@keyframes eye-enter {
+  0% {
+    transform: scaleY(0.0);
+  }
+  100% {
+    transform: scaleY(1.0);
+  }
+}
+
+@keyframes eye-container-rotate {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  25% {
+    transform: rotateZ(10deg);
+  }
+  75% {
+    transform: rotateZ(350deg);
+  }
+}
+
+@keyframes eye-move-up-down {
+  0% {
+    transform: translateY(0%);
+  }
+  25% {
+    transform: translateY(-10%);
+  }
+  75% {
+    transform: translateY(10%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}

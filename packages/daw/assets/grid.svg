@@ -1,0 +1,22 @@
+<svg viewBox="0 0 192 24" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="smallGrid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="gray" stroke-width="1" />
+    </pattern>
+    <pattern id="grid" width="96" height="96" patternUnits="userSpaceOnUse">
+      <rect width="100%" height="100%" fill="#dbdbdb"/>
+      <rect width="96" height="96" fill="url(#smallGrid)" />
+      <path d="M 96 0 L 0 0 0 96" fill="none" stroke="gray" stroke-width="3" />
+    </pattern>
+
+    <filter id="darken">
+      <feComponentTransfer>
+        <feFuncR type="linear" slope="0.8"/>
+        <feFuncG type="linear" slope="0.8"/>
+        <feFuncB type="linear" slope="0.8"/>
+      </feComponentTransfer>
+    </filter>
+  </defs>
+  <rect x="0" y="0" width="50%" height="100%" fill="url(#grid)" />
+  <rect x="50%" y="0" width="50%" height="100%" fill="url(#grid)" filter="url(#darken)" />
+</svg>

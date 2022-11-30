@@ -1,0 +1,26 @@
+
+@property --x {
+  syntax: '<percentage>';
+  initial-value: 0%;
+  inherits: false;
+}
+
+#f {
+  aspect-ratio: 1/1;
+  // radial gradient with hole in the middle
+  background:
+    radial-gradient(circle at center, rgba(255,255,255,0) 0%, rgba(255,255,255,0) var(--x), rgb(0, 0, 0) var(--x));
+}
+
+.fade-out {
+  animation: fade-out $b8 ease-out both;
+}
+
+@keyframes fade-out {
+  0% {
+    --x: 100%;
+  }
+  100% {
+    --x: 0%;
+  }
+}

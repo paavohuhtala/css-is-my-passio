@@ -1,0 +1,8 @@
+{
+  "collapseWhitespace": "all",
+  "collapseAttributeWhitespace": true,
+  "removeAttributeQuotes": true,
+  "removeEmptyAttributes": true,
+  "removeOptionalTags": true,
+  "removeRedundantAttributes": true
+}
